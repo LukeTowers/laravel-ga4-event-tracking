@@ -177,17 +177,25 @@ class GA4
             $this->validateUserProperties($this->userProperties);
         }
 
+        $requestData = [
+            'client_id' => $this->clientId,
+            'events' => $events,
+        ];
+
+        if (!empty($this->userId)) {
+            $requestData['user_id'] = $this->userId;
+        }
+
+        if (!empty($this->userProperties)) {
+            $requestData['user_properties'] = $this->userProperties;
+        }
+
         $response = Http::withOptions([
             'query' => [
                 'measurement_id' => config('ga4-event-tracking.measurement_id'),
                 'api_secret' => config('ga4-event-tracking.api_secret'),
             ],
-        ])->post($this->getRequestUrl(), [
-            'client_id' => $this->clientId,
-            'user_id' => $this->userId,
-            'events' => $events,
-            'user_properties' => $this->userProperties,
-        ]);
+        ])->post($this->getRequestUrl(), $requestData);
 
         if ($this->debugging) {
             return $response->json();
