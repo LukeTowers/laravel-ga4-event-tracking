@@ -22,7 +22,7 @@ composer require devpro/laravel-ga4-event-tracking
 3) Optional: Publish the config / view files by running this command in your terminal:
 
 ``` bash
-php artisan vendor:publish --tag=ga4-event-tracking
+php artisan vendor:publish --tag=ga4-event-tracking.config --tag=ga4-event-tracking.views
 ```
 
 4) Include the `sendGA4ClientID` directive in your layout file after the Google Analytics Code tracking code.

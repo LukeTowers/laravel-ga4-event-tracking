@@ -8,7 +8,6 @@ use DevPro\GA4EventTracking\Http\ClientIdRepository;
 use DevPro\GA4EventTracking\Http\ClientIdSession;
 use DevPro\GA4EventTracking\Http\StoreClientIdInSession;
 use DevPro\GA4EventTracking\Listeners\DispatchAnalyticsJob;
-use GA4;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
