@@ -15,7 +15,7 @@ Simplifies using the [Measurement Protocol for Google Analytics 4](https://devel
 composer require devpro/laravel-ga4-event-tracking
 ```
 
-2) Set `MEASUREMENT_ID`  and `MEASUREMENT_PROTOCOL_API_SECRET` in your .env file.
+2) Set `GA4_MEASUREMENT_ID`  and `GA4_MEASUREMENT_PROTOCOL_API_SECRET` in your .env file.
 
 > Copy from `Google Analytics > Admin > Data Streams > [Select Site] > Measurement ID` & `Google Analytics > Admin > Data Streams > [Select Site] > Measurement Protocol API secrets` respectively.
 
@@ -185,7 +185,7 @@ You can also enable [debugging mode](https://developers.google.com/analytics/dev
 ## Testing
 
 ``` bash
-$ composer test
+composer test
 ```
 
 ## Security

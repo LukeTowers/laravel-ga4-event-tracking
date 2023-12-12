@@ -1,0 +1,69 @@
+{
+    "name": "devpro/laravel-ga4-event-tracking",
+    "description": "Simplifies using the Measurement Protocol for Google Analytics 4 to track events in Laravel applications.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luke Towers",
+            "role": "Current Maintainer"
+        },
+        {
+            "name": "Ronny Arvelo",
+            "role": "Previous Maintainer"
+        },
+        {
+            "name": "Mike Wall",
+            "email": "daikazu@gmail.com",
+            "homepage": "http://mikewall.dev"
+        },
+        {
+            "name": "Pascal Baljet",
+            "email": "pascal@protone.media",
+            "role": "Original Author"
+        }
+    ],
+    "homepage": "https://github.com/devproca/laravel-ga4-event-tracking",
+    "keywords": [
+        "laravel",
+        "google-analytics-4",
+        "GA4",
+        "laravel-analytics",
+        "analytics",
+        "analytics-event-tracking"
+    ],
+    "require": {
+        "php": "^8.1 || ^8.2",
+        "illuminate/bus": "^9.0 || ^10.0",
+        "illuminate/queue": "^9.0 || ^10.0",
+        "illuminate/http": "^9.0 || ^10.0",
+        "illuminate/validation": "^9.0 || ^10.0",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4.4",
+        "nesbot/carbon": "^2.66",
+        "orchestra/testbench": "^7.0 || ^8.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "DevPro\\GA4EventTracking\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DevPro\\GA4EventTracking\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DevPro\\GA4EventTracking\\ServiceProvider"
+            ]
+        }
+    }
+}
