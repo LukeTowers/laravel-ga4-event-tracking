@@ -8,6 +8,7 @@ use DevPro\GA4EventTracking\Http\ClientIdRepository;
 use DevPro\GA4EventTracking\Http\ClientIdSession;
 use DevPro\GA4EventTracking\Http\StoreClientIdInSession;
 use DevPro\GA4EventTracking\Listeners\DispatchAnalyticsJob;
+use GA4;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,13 @@ class ServiceProvider extends BaseServiceProvider
             $this->bootForConsole();
         }
 
-        Event::listen(ShouldBroadcastToAnalytics::class, DispatchAnalyticsJob::class);
+        // Only register the listener if the measurement_id and api_secret are set
+        // to avoid unnecessary overhead.
+        if (config('ga4-event-tracking.measurement_id') !== null
+            && !config('ga4-event-tracking.api_secret') !== null
+        ) {
+            Event::listen(ShouldBroadcastToAnalytics::class, DispatchAnalyticsJob::class);
+        }
 
         Blade::directive('sendGA4ClientID', function () {
             return "<?php echo view('ga4-event-tracking::sendClientID'); ?>";

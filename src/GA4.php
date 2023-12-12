@@ -90,13 +90,15 @@ class GA4
         'google_',
     ];
 
-    public function __construct()
+    public function isConfigured(): bool
     {
-        if (config('ga4-event-tracking.measurement_id') === null
-            || config('ga4-event-tracking.api_secret') === null
-        ) {
-            throw new \Exception('GA4 cannot be used without a Measurement ID and API Secret. Check your .env file or config/ga4-event-tracking.php.');
-        }
+        return config('ga4-event-tracking.measurement_id') !== null
+            && config('ga4-event-tracking.api_secret') !== null;
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->isConfigured() && config('ga4-event-tracking.is_enabled', true);
     }
 
     public function setClientId(string $clientId): static
@@ -155,10 +157,10 @@ class GA4
      */
     public function sendEvents(array $events): array
     {
-        if (!config('ga4-event-tracking.is_enabled', true)) {
+        if (!$this->isEnabled()) {
             return [
                 'status' => false,
-                'message' => 'GA4 Event Tracking is disabled.',
+                'message' => 'GA4 Event Tracking is not configured.',
             ];
         }
 
