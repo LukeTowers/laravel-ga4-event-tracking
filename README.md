@@ -29,7 +29,7 @@ php artisan vendor:publish --tag=ga4-event-tracking.config --tag=ga4-event-track
 
 ```blade
 <!-- Google Analytics Code -->
-@sendClientID
+@sendGA4ClientID
 <!-- </head> -->
 ```
 
