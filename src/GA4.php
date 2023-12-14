@@ -18,9 +18,9 @@ class GA4
 
     protected bool $debugging = false;
 
-    protected string $eventAction;
+    protected string $eventAction = '';
 
-    protected array $eventParams;
+    protected array $eventParams = [];
 
     /**
      * @see https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=gtag#reserved_event_names
