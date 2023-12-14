@@ -97,6 +97,7 @@ namespace App\Events;
 
 use App\Order;
 use DevPro\GA4EventTracking\ShouldBroadcastToAnalytics;
+use DevPro\GA4EventTracking\GA4;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
