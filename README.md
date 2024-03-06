@@ -1,7 +1,7 @@
 # Laravel Google Analytics 4 Measurement Protocol Event Tracking
 
 [![Version](https://img.shields.io/github/v/release/devproca/laravel-ga4-event-tracking?sort=semver&style=flat-square)](https://github.com/devproca/laravel-ga4-event-tracking/releases)
-[![Tests](https://img.shields.io/github/actions/workflow/status/devproca/laravel-ga4-event-tracking/tests.yml?&label=tests&style=flat-square)](https://github.com/devproca/laravel-ga4-event-tracking/actions)
+[![Tests](https://img.shields.io/github/actions/workflow/status/devproca/laravel-ga4-event-tracking/run-tests.yml?&label=tests&style=flat-square)](https://github.com/devproca/laravel-ga4-event-tracking/actions)
 [![License](https://img.shields.io/github/license/devproca/laravel-ga4-event-tracking?label=open%20source&style=flat-square)](https://packagist.org/packages/devpro/laravel-ga4-event-tracking)
 
 
