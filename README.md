@@ -188,6 +188,11 @@ You can also enable [debugging mode](https://developers.google.com/analytics/dev
 ``` bash
 composer test
 ```
+or
+
+``` bash
+./vendor/bin/phpunit
+```
 
 ## Security
 
