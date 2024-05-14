@@ -22,9 +22,14 @@ return [
     'api_secret' => env('GA4_MEASUREMENT_PROTOCOL_API_SECRET', null),
 
     /**
-     * The session key to store the Client ID in.
+     * The session key to store the GA4 Client ID in.
      */
     'client_id_session_key' => 'ga4-event-tracking-client-id',
+
+    /**
+     * The session key to store the GA4 Session ID in.
+     */
+    'session_id_session_key' => 'ga4-event-tracking-session-id',
 
     /**
      * HTTP URI to post the Client ID to (from the Blade Directive).

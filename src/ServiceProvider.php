@@ -6,6 +6,8 @@ use DevPro\GA4EventTracking\Events\BroadcastEvent;
 use DevPro\GA4EventTracking\Events\EventBroadcaster;
 use DevPro\GA4EventTracking\Http\ClientIdRepository;
 use DevPro\GA4EventTracking\Http\ClientIdSession;
+use DevPro\GA4EventTracking\Http\SessionIdRepository;
+use DevPro\GA4EventTracking\Http\SessionIdSession;
 use DevPro\GA4EventTracking\Http\StoreClientIdInSession;
 use DevPro\GA4EventTracking\Listeners\DispatchAnalyticsJob;
 use Illuminate\Support\Facades\Blade;
@@ -89,15 +91,25 @@ class ServiceProvider extends BaseServiceProvider
     protected function registerClientId()
     {
         $this->app->singleton(ClientIdRepository::class, ClientIdSession::class);
+        $this->app->singleton(SessionIdRepository::class, SessionIdSession::class);
 
         $this->app->bind('ga4-event-tracking.client-id', function () {
             return $this->app->make(ClientIdSession::class)->get();
+        });
+        $this->app->bind('ga4-event-tracking.session-id', function () {
+            return $this->app->make(SessionIdSession::class)->get();
         });
 
         $this->app->singleton(ClientIdSession::class, function () {
             return new ClientIdSession(
                 $this->app->make('session.store'),
-                config('ga4-event-tracking.client_id_session_key')
+                config('ga4-event-tracking.client_id_session_key', 'ga4-event-tracking-client-id')
+            );
+        });
+        $this->app->singleton(SessionIdSession::class, function () {
+            return new SessionIdSession(
+                $this->app->make('session.store'),
+                config('ga4-event-tracking.session_id_session_key', 'ga4-event-tracking-session-id')
             );
         });
     }

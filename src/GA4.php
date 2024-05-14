@@ -14,6 +14,10 @@ class GA4
 
     protected string $userId = '';
 
+    protected string $timestampMicros = '';
+
+    protected ?string $sessionId = null;
+
     protected array $userProperties = [];
 
     protected bool $debugging = false;
@@ -113,6 +117,24 @@ class GA4
         return $this;
     }
 
+    public function setTimestampMicros(string $timestampMicros): static
+    {
+        // @TODO: Perform validation on this to ensure it's a valid timestamp
+        $this->timestampMicros = $timestampMicros;
+        return $this;
+    }
+
+    public function setSessionId(string $sessionId): static
+    {
+        $this->sessionId = $sessionId;
+        return $this;
+    }
+
+    public function getSessionId(): ?string
+    {
+        return $this->sessionId;
+    }
+
     public function setUserProperties(array $userProperties): static
     {
         $this->userProperties = $userProperties;
@@ -131,6 +153,12 @@ class GA4
 
     public function setEventParams(array $eventParams): void
     {
+        if (!isset($eventParams['session_id']) && !is_null($this->sessionId)) {
+            // Required to have events show up in session based reporting
+            // @see https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=gtag#format_the_request
+            $eventParams['session_id'] = $this->sessionId;
+        }
+
         $this->eventParams = $eventParams;
     }
 
@@ -184,6 +212,12 @@ class GA4
 
         if (!empty($this->userId)) {
             $requestData['user_id'] = $this->userId;
+        }
+
+        if (!empty($this->timestampMicros)) {
+            // @TODO: Perform validation on this to ensure that it's within the past 72 hours
+            // @see https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=gtag#payload_post_body
+            $requestData['timestamp_micros'] = $this->timestampMicros;
         }
 
         if (!empty($this->userProperties)) {

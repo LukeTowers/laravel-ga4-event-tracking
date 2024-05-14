@@ -2,6 +2,7 @@
 
 namespace DevPro\GA4EventTracking\Events;
 
+use Carbon\Carbon;
 use DevPro\GA4EventTracking\GA4;
 
 class BroadcastEvent implements EventBroadcaster
@@ -30,6 +31,14 @@ class BroadcastEvent implements EventBroadcaster
 
         if (method_exists($event, 'withGA4Parameters')) {
             $this->GA4->setEventParams($event->withGA4Parameters($this->GA4));
+        }
+
+        $occurredAt = Carbon::now();
+        if (method_exists($event, 'eventOccurredAt')) {
+            $occurredAt = $event->eventOccurredAt();
+        }
+        if ($occurredAt instanceof Carbon) {
+            $this->GA4->setTimestampMicros($occurredAt->timestamp . $occurredAt->micro);
         }
 
         $this->GA4->sendAsSystemEvent();

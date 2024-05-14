@@ -84,11 +84,44 @@ class OrderWasCreated implements ShouldBroadcastToAnalytics
 }
 ```
 
-There are two additional methods that lets you customize the call sent to GA4.
+There are additional methods that let you customize the call sent to GA4.
 
-With the `broadcastGA4EventAs` method you can customize the name of the [Event Action](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventAction). By default, we use the class name with the class's namespace removed. This method gives you access to the underlying `GA4` class instance as well.
+#### `broadcastGA4EventAs`
 
-With the `withGA4Parameters` method you can set the parameters of the event being sent.
+With this method you can customize the name of the [Event Action](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventAction). By default, we use the class name with the class's namespace removed. This method gives you access to the underlying `GA4` class instance as well.
+
+#### `eventOccurredAt`
+
+With this method you can customize the time that the event occurred at. This will be used in the `timestamp_micros` parameter sent to the Measurement Protocol. By default, we use the current time. You must return an instance of `Carbon\Carbon` in order for it to be used.
+
+```php
+use Carbon\Carbon;
+use DevPro\GA4EventTracking\GA4;
+use DevPro\GA4EventTracking\ShouldBroadcastToAnalytics;
+use Illuminate\Queue\SerializesModels;
+
+class OrderSubmitted extends Event implements ShouldBroadcastToAnalytics
+{
+    use SerializesModels;
+
+    protected Carbon $submittedAt;
+
+    public function __construct(
+        public Order $order
+    ) {
+        $this->submittedAt = now();
+    }
+
+    public function eventOccurredAt(): Carbon
+    {
+        return $this->submittedAt;
+    }
+}
+```
+
+#### `withGA4Parameters`
+
+With this method you can set the parameters of the event being sent.
 
 ```php
 <?php
