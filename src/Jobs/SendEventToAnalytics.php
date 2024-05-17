@@ -20,11 +20,14 @@ class SendEventToAnalytics implements ShouldQueue
 
     public ?string $userId;
 
-    public function __construct($event, string $clientId = null, string $userId = null)
+    public ?string $sessionId;
+
+    public function __construct($event, string $clientId = null, string $userId = null, string $sessionId = null)
     {
         $this->event = $event;
         $this->clientId = $clientId;
         $this->userId = $userId;
+        $this->sessionId = $sessionId;
     }
 
     public function handle(EventBroadcaster $broadcaster)
@@ -35,6 +38,10 @@ class SendEventToAnalytics implements ShouldQueue
 
         if ($this->userId) {
             $broadcaster->withParameters(fn (GA4 $GA4) => $GA4->setUserId($this->userId));
+        }
+
+        if ($this->sessionId) {
+            $broadcaster->withParameters(fn (GA4 $GA4) => $GA4->setSessionId($this->sessionId));
         }
 
         $broadcaster->handle($this->event);
