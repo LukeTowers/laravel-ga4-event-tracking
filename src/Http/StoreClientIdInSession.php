@@ -1,6 +1,6 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Http;
+namespace LukeTowers\GA4EventTracking\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

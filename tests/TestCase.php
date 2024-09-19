@@ -1,8 +1,8 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Tests;
+namespace LukeTowers\GA4EventTracking\Tests;
 
-use DevPro\GA4EventTracking\ServiceProvider;
+use LukeTowers\GA4EventTracking\ServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

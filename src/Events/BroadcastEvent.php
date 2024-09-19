@@ -1,9 +1,9 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Events;
+namespace LukeTowers\GA4EventTracking\Events;
 
 use Carbon\Carbon;
-use DevPro\GA4EventTracking\GA4;
+use LukeTowers\GA4EventTracking\GA4;
 
 class BroadcastEvent implements EventBroadcaster
 {

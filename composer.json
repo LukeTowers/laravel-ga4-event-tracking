@@ -1,5 +1,5 @@
 {
-    "name": "devpro/laravel-ga4-event-tracking",
+    "name": "luketowers/laravel-ga4-event-tracking",
     "description": "Simplifies using the Measurement Protocol for Google Analytics 4 to track events in Laravel applications.",
     "license": "MIT",
     "authors": [
@@ -22,7 +22,7 @@
             "role": "Original Author"
         }
     ],
-    "homepage": "https://github.com/devproca/laravel-ga4-event-tracking",
+    "homepage": "https://github.com/LukeTowers/laravel-ga4-event-tracking",
     "keywords": [
         "laravel",
         "google-analytics-4",
@@ -32,7 +32,7 @@
         "analytics-event-tracking"
     ],
     "require": {
-        "php": "^8.1 || ^8.2",
+        "php": "^8.1 || ^8.2 || ^8.3",
         "illuminate/bus": "^8.0 || ^9.0 || ^10.0 || ^11.0",
         "illuminate/queue": "^8.0 || ^9.0 || ^10.0 || ^11.0",
         "illuminate/http": "^8.74 || ^9.0 || ^10.0 || ^11.0",
@@ -46,13 +46,16 @@
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
+        "files": [
+            "src/aliases.php"
+        ],
         "psr-4": {
-            "DevPro\\GA4EventTracking\\": "src"
+            "LukeTowers\\GA4EventTracking\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DevPro\\GA4EventTracking\\Tests\\": "tests"
+            "LukeTowers\\GA4EventTracking\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -62,7 +65,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DevPro\\GA4EventTracking\\ServiceProvider"
+                "LukeTowers\\GA4EventTracking\\ServiceProvider"
             ]
         }
     }

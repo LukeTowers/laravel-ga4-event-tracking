@@ -1,10 +1,10 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Listeners;
+namespace LukeTowers\GA4EventTracking\Listeners;
 
-use DevPro\GA4EventTracking\Http\ClientIdRepository;
-use DevPro\GA4EventTracking\Http\SessionIdRepository;
-use DevPro\GA4EventTracking\Jobs\SendEventToAnalytics;
+use LukeTowers\GA4EventTracking\Http\ClientIdRepository;
+use LukeTowers\GA4EventTracking\Http\SessionIdRepository;
+use LukeTowers\GA4EventTracking\Jobs\SendEventToAnalytics;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Auth;
 

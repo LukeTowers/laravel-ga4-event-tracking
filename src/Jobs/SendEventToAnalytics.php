@@ -1,9 +1,9 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Jobs;
+namespace LukeTowers\GA4EventTracking\Jobs;
 
-use DevPro\GA4EventTracking\Events\EventBroadcaster;
-use DevPro\GA4EventTracking\GA4;
+use LukeTowers\GA4EventTracking\Events\EventBroadcaster;
+use LukeTowers\GA4EventTracking\GA4;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

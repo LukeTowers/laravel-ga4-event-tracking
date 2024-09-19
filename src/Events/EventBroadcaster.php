@@ -1,6 +1,6 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Events;
+namespace LukeTowers\GA4EventTracking\Events;
 
 interface EventBroadcaster
 {

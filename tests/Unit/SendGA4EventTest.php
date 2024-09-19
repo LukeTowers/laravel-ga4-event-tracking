@@ -1,10 +1,10 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Tests\Unit;
+namespace LukeTowers\GA4EventTracking\Tests\Unit;
 
-use DevPro\GA4EventTracking\Exceptions\ReservedEventNameException;
-use DevPro\GA4EventTracking\Facades\GA4;
-use DevPro\GA4EventTracking\Tests\TestCase;
+use LukeTowers\GA4EventTracking\Exceptions\ReservedEventNameException;
+use LukeTowers\GA4EventTracking\Facades\GA4;
+use LukeTowers\GA4EventTracking\Tests\TestCase;
 
 class SendGA4EventTest extends TestCase
 {

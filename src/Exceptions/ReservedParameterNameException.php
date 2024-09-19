@@ -1,6 +1,6 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Exceptions;
+namespace LukeTowers\GA4EventTracking\Exceptions;
 
 use Exception;
 

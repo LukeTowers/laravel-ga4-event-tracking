@@ -1,15 +1,15 @@
 <?php
 
-namespace DevPro\GA4EventTracking;
+namespace LukeTowers\GA4EventTracking;
 
-use DevPro\GA4EventTracking\Events\BroadcastEvent;
-use DevPro\GA4EventTracking\Events\EventBroadcaster;
-use DevPro\GA4EventTracking\Http\ClientIdRepository;
-use DevPro\GA4EventTracking\Http\ClientIdSession;
-use DevPro\GA4EventTracking\Http\SessionIdRepository;
-use DevPro\GA4EventTracking\Http\SessionIdSession;
-use DevPro\GA4EventTracking\Http\StoreClientIdInSession;
-use DevPro\GA4EventTracking\Listeners\DispatchAnalyticsJob;
+use LukeTowers\GA4EventTracking\Events\BroadcastEvent;
+use LukeTowers\GA4EventTracking\Events\EventBroadcaster;
+use LukeTowers\GA4EventTracking\Http\ClientIdRepository;
+use LukeTowers\GA4EventTracking\Http\ClientIdSession;
+use LukeTowers\GA4EventTracking\Http\SessionIdRepository;
+use LukeTowers\GA4EventTracking\Http\SessionIdSession;
+use LukeTowers\GA4EventTracking\Http\StoreClientIdInSession;
+use LukeTowers\GA4EventTracking\Listeners\DispatchAnalyticsJob;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;

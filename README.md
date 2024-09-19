@@ -1,8 +1,8 @@
 # Laravel Google Analytics 4 Measurement Protocol Event Tracking
 
-[![Version](https://img.shields.io/github/v/release/devproca/laravel-ga4-event-tracking?sort=semver&style=flat-square)](https://github.com/devproca/laravel-ga4-event-tracking/releases)
-[![Tests](https://img.shields.io/github/actions/workflow/status/devproca/laravel-ga4-event-tracking/run-tests.yml?&label=tests&style=flat-square)](https://github.com/devproca/laravel-ga4-event-tracking/actions)
-[![License](https://img.shields.io/github/license/devproca/laravel-ga4-event-tracking?label=open%20source&style=flat-square)](https://packagist.org/packages/devpro/laravel-ga4-event-tracking)
+[![Version](https://img.shields.io/github/v/release/luketowers/laravel-ga4-event-tracking?sort=semver&style=flat-square)](https://github.com/luketowers/laravel-ga4-event-tracking/releases)
+[![Tests](https://img.shields.io/github/actions/workflow/status/luketowers/laravel-ga4-event-tracking/run-tests.yml?&label=tests&style=flat-square)](https://github.com/luketowers/laravel-ga4-event-tracking/actions)
+[![License](https://img.shields.io/github/license/luketowers/laravel-ga4-event-tracking?label=open%20source&style=flat-square)](https://packagist.org/packages/luketowers/laravel-ga4-event-tracking)
 
 
 Simplifies using the [Measurement Protocol for Google Analytics 4](https://developers.google.com/analytics/devguides/collection/protocol/ga4) to track events in Laravel applications.
@@ -12,7 +12,7 @@ Simplifies using the [Measurement Protocol for Google Analytics 4](https://devel
 1) Install package via Composer
 
 ``` bash
-composer require devpro/laravel-ga4-event-tracking
+composer require luketowers/laravel-ga4-event-tracking
 ```
 
 2) Set `GA4_MEASUREMENT_ID`  and `GA4_MEASUREMENT_PROTOCOL_API_SECRET` in your .env file.
@@ -67,7 +67,7 @@ Just add the `ShouldBroadcastToAnalytics` interface to your event, and you're re
 namespace App\Events;
 
 use App\Order;
-use DevPro\GA4EventTracking\ShouldBroadcastToAnalytics;
+use LukeTowers\GA4EventTracking\ShouldBroadcastToAnalytics;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -96,8 +96,8 @@ With this method you can customize the time that the event occurred at. This wil
 
 ```php
 use Carbon\Carbon;
-use DevPro\GA4EventTracking\GA4;
-use DevPro\GA4EventTracking\ShouldBroadcastToAnalytics;
+use LukeTowers\GA4EventTracking\GA4;
+use LukeTowers\GA4EventTracking\ShouldBroadcastToAnalytics;
 use Illuminate\Queue\SerializesModels;
 
 class OrderSubmitted extends Event implements ShouldBroadcastToAnalytics
@@ -129,8 +129,8 @@ With this method you can set the parameters of the event being sent.
 namespace App\Events;
 
 use App\Order;
-use DevPro\GA4EventTracking\ShouldBroadcastToAnalytics;
-use DevPro\GA4EventTracking\GA4;
+use LukeTowers\GA4EventTracking\ShouldBroadcastToAnalytics;
+use LukeTowers\GA4EventTracking\GA4;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -190,7 +190,7 @@ If you want to handle events where you can't add the `ShouldBroadcastToAnalytics
 
 namespace App\Providers;
 
-use DevPro\GA4EventTracking\Listeners\DispatchAnalyticsJob;
+use LukeTowers\GA4EventTracking\Listeners\DispatchAnalyticsJob;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -229,7 +229,7 @@ or
 
 ## Security
 
-If you discover any security related issues, please use the [Report a vulnerability](https://github.com/devproca/laravel-ga4-event-tracking/security/advisories/new) button instead of using the issue tracker.
+If you discover any security related issues, please use the [Report a vulnerability](https://github.com/luketowers/laravel-ga4-event-tracking/security/advisories/new) button instead of using the issue tracker.
 
 ## Credits:
 

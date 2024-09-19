@@ -1,6 +1,6 @@
 <?php
 
-namespace DevPro\GA4EventTracking;
+namespace LukeTowers\GA4EventTracking;
 
 interface ShouldBroadcastToAnalytics
 {

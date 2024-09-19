@@ -1,6 +1,6 @@
 <?php
 
-namespace DevPro\GA4EventTracking\Facades;
+namespace LukeTowers\GA4EventTracking\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

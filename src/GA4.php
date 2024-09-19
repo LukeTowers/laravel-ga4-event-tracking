@@ -1,10 +1,10 @@
 <?php
 
-namespace DevPro\GA4EventTracking;
+namespace LukeTowers\GA4EventTracking;
 
-use DevPro\GA4EventTracking\Exceptions\MissingClientIdException;
-use DevPro\GA4EventTracking\Exceptions\ReservedEventNameException;
-use DevPro\GA4EventTracking\Exceptions\ReservedParameterNameException;
+use LukeTowers\GA4EventTracking\Exceptions\MissingClientIdException;
+use LukeTowers\GA4EventTracking\Exceptions\ReservedEventNameException;
+use LukeTowers\GA4EventTracking\Exceptions\ReservedParameterNameException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
