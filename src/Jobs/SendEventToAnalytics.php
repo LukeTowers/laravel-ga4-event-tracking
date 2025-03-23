@@ -22,7 +22,7 @@ class SendEventToAnalytics implements ShouldQueue
 
     public ?string $sessionId;
 
-    public function __construct($event, string $clientId = null, string $userId = null, string $sessionId = null)
+    public function __construct($event, ?string $clientId = null, ?string $userId = null, ?string $sessionId = null)
     {
         $this->event = $event;
         $this->clientId = $clientId;
