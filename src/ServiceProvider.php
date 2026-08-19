@@ -35,7 +35,7 @@ class ServiceProvider extends BaseServiceProvider
             // Only register the listener if the measurement_id and api_secret are set
             // to avoid unnecessary overhead.
             if (config('ga4-event-tracking.measurement_id') !== null
-                && !config('ga4-event-tracking.api_secret') !== null
+                && config('ga4-event-tracking.api_secret') !== null
             ) {
                 Event::listen(ShouldBroadcastToAnalytics::class, DispatchAnalyticsJob::class);
             }
